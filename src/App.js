@@ -8,10 +8,10 @@ import { firebase } from "./firebase/firebase.config";
 
 // Pages
 import Login from "./Pages/Login/Login";
-import Register from "./Pages/Register/Register";
-import Home from "./Pages/Home/Home";
+import SignUp from "./Pages/SignUp/SignUp";
+import Home from "./Pages/Home";
 import Profile from "./Pages/Profile/Profile";
-import Images from "./Pages/Images/Images";
+import Pictures from "./Pages/Pictures/Pictures";
 import Videos from "./Pages/Videos/Videos";
 import NotFound from "./Pages/NotFound/NotFound";
 
@@ -28,7 +28,7 @@ function App() {
   // Redux dispatch
   const dispatch = useDispatch();
 
-  // Check if there is any user in session, if not, it only allow you to see Login and Register pages
+  // Check if there is any user in session, if not, it only allow you to see Login and SignUp pages
   firebase.auth().onAuthStateChanged((user) => {
     if (user?.uid) {
       dispatch(
@@ -82,7 +82,7 @@ function App() {
           render={() =>
             !isInSession ? (
               <>
-                <Register />
+                <SignUp />
               </>
             ) : (
               <Redirect to="/" />
@@ -92,12 +92,12 @@ function App() {
 
         <Route
           exact
-          path="/images"
+          path="/pictures"
           render={() =>
             isInSession ? (
               <>
                 <Header />
-                <Images />
+                <Pictures />
               </>
             ) : (
               <Redirect to="/login" />

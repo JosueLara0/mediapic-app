@@ -10,18 +10,10 @@ module.exports = {
       black: "#000000",
       white_bg: "#F2F2F2",
       pink: "#ff416c",
-      red: "#ff416c",
+      red: "#DA0037",
+      green: "#05a081",
     },
-    screens: {
-      tablet: "640px",
-      // => @media (min-width: 640px) { ... }
 
-      laptop: "1024px",
-      // => @media (min-width: 1024px) { ... }
-
-      desktop: "1280px",
-      // => @media (min-width: 1280px) { ... }
-    },
     extend: {},
   },
   variants: {

@@ -9,7 +9,7 @@ import { HiDownload } from "react-icons/hi";
 import { IoOptions } from "react-icons/io5";
 
 // Styles
-import "./SingleVideo.styles.css";
+import "./SinglePicture.styles.css";
 
 // Modals
 import Modals from "../../../Modals/Modals";
@@ -17,45 +17,43 @@ import Modals from "../../../Modals/Modals";
 // actions
 import { handleAddFavDataAction } from "../../../redux/actions/profile.action";
 
-const SingleVideo = ({ data, isFavData }) => {
+const SinglePicture = ({ data, isFavData }) => {
   // Redux dispatch
   const dispatch = useDispatch();
 
   // States
   const [isOpen, setIsOpen] = useState(false);
 
-  // Add video to favorites
+  // Add picture to favorites
   const handleAddFavData = () => {
     dispatch(handleAddFavDataAction(data, isFavData));
   };
 
   return (
     <>
-      {data.video_files && (
+      {data.src && (
         <figure>
-          <video controls muted>
-            <source src={data?.video_files[0]?.link} type="video/mp4" />
-          </video>
-          <figcaption className="w-full flex items-center justify-between">
+          <img src={data?.src?.large} alt="Not Available" />
+          <figcaption className="w-11/12 flex items-center justify-between">
             {isFavData ? (
               <AiFillHeart
-                className="cursor-pointer text-red text-2xl hover:opacity-75"
+                className="cursor-pointer z-50 text-red text-2xl hover:opacity-75"
                 onClick={handleAddFavData}
               />
             ) : (
               <AiOutlineHeart
-                className="cursor-pointer text-white text-2xl hover:opacity-75"
+                className="cursor-pointer z-50 text-white text-2xl hover:opacity-75"
                 onClick={handleAddFavData}
               />
             )}
 
             <a
               rel="nofollow noopener noreferrer"
-              href={data?.user?.url}
+              href={data?.photographer_url}
               target="_blank"
               className="font-bold text-white text-lg hover:opacity-75"
             >
-              {data?.user?.name}
+              {data?.photographer}
             </a>
 
             <button
@@ -67,17 +65,19 @@ const SingleVideo = ({ data, isFavData }) => {
           </figcaption>
 
           <Modals open={isOpen} onClose={() => setIsOpen(false)}>
-            <video controls muted className="modal__video">
-              <source src={data?.video_files[0]?.link} type="video/mp4" />
-            </video>
+            <img
+              src={data?.src.large}
+              alt="Not Available"
+              className="modal__img "
+            />
 
             <a
               rel="nofollow noopener noreferrer"
-              href={data?.user?.url}
+              href={data?.photographer_url}
               target="_blank"
               className="mt-2 font-bold text-xl hover:opacity-75"
             >
-              {data?.user?.name}
+              <span>{data?.photographer}</span>
             </a>
 
             <a
@@ -95,8 +95,8 @@ const SingleVideo = ({ data, isFavData }) => {
   );
 };
 
-SingleVideo.propTypes = {
+SinglePicture.propTypes = {
   isFavData: PropTypes.bool.isRequired,
 };
 
-export default SingleVideo;
+export default SinglePicture;

@@ -1,19 +1,19 @@
-//Styles
-import "./SearchForm.styles.css";
-
 const SearchForm = ({ handleKeyword, handleSearchData }) => {
   return (
-    <form className="w-1/2 m-auto mt-5 mb-5" onSubmit={handleSearchData}>
+    <form
+      className="w-11/12 sm:w-3/4 lg:w-1/2 m-auto mt-10 md:mt-24 text-base sm:text-lg"
+      onSubmit={handleSearchData}
+    >
       <input
         type="text"
-        className="w-3/4 px-3 py-3 outline-none border border-black search-input"
+        className="w-8/12 sm:w-3/4 p-3 outline-none border-2 border-red rounded-l-lg"
         placeholder="Search by keyword"
         onChange={({ target }) => handleKeyword(target)}
       />
       <input
         type="submit"
         value="Search"
-        className="w-1/4 bg-black px-3 py-3 border border-black text-white"
+        className="cursor-pointer w-4/12 sm:w-1/4 p-3 border-2 border-red rounded-r-lg bg-red hover:opacity-80 font-bold text-white"
       />
     </form>
   );

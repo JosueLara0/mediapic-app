@@ -34,7 +34,7 @@ export const handleLoginWithEmailAction = ({ emailForm, password }) => {
   };
 };
 
-export const handleRegisterAction = ({ userName, email, password }) => {
+export const handleSignUpAction = ({ userName, email, password }) => {
   return async (dispatch) => {
     try {
       dispatch(handleCleanErrorAction());
