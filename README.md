@@ -12,7 +12,7 @@ Includes:
 
 # Deployment
 
-VERCEL: 
+VERCEL:
 
 [LINK](https://mediapic-app.vercel.app/login)
 
@@ -26,7 +26,7 @@ Mobile version:
 
 ![Screenshot](src/assets/screenshots/screenshot-mobile.png)
 
-## Libraries
+## Libraries and tools
 
 1.  [REACT](https://en.reactjs.org/)
 2.  [REACT ROUTER](https://reactrouter.com/)
@@ -42,6 +42,6 @@ Mobile version:
 2. Install modules `npm install`.
 3. Make an account and get an api key in [Pexels api](https://www.pexels.com/).
 4. Make an account and a database to get keys in [Firebase](https://firebase.google.com/).
-5. Check .env.example file and create a `.env` file. 
+5. Check .env.example file and create a `.env` file.
 6. Setting up Tailwind CSS check [documentation link](https://tailwindcss.com/docs/guides/create-react-app).
 7. Run project `npm start`.
